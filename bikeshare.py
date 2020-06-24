@@ -44,7 +44,7 @@ def get_filters():
     cities = ["Chicago", "New York City", "Washington"]
     months = ["January", "February", "March", "April", "May", "June", "All"]
     days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "All"]
-    
+
     while True:
         city = input("Which city you would like to explore the bikeshare data for: chicago, new york city, or washington ?")
         if city.title() in cities:
@@ -52,10 +52,10 @@ def get_filters():
             break
         else:
             print("Sorry, please select again from the following cities: chicago, new york city, washington")
-                   
+
 
     # TO DO: get user input for month (all, january, february, ... , june)
-    
+
     while True:
         month = input("Which month you would like to explore the bikeshare data for: january, february, march, april, may, june or all ?")
         if month.title() in months:
@@ -63,7 +63,7 @@ def get_filters():
             break
         else:
             print("Sorry, please select again from the following options: january, february, march, april, may, june or all")
-    
+
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
@@ -72,7 +72,7 @@ def get_filters():
             print("Great !!")
             break
         else:
-            print("Sorry, please select again from the following: monday, tuesday, wednesday, thursday, friday, saturday, sunday or all")
+            print("Sorry, please select again from the following and make sure it is in lowercase: monday, tuesday, wednesday, thursday, friday, saturday, sunday or all")
 
     print('-'*40)
     return city, month, day
@@ -91,16 +91,16 @@ def load_data(city, month, day):
     """
     # data loaded into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
     # convert start time into datetime format
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
+
     # separate columns for month, day of the week and hour
     df['months'] = df['Start Time'].dt.month
     df['days_of_week'] = df['Start Time'].dt.weekday_name
     df['Hour'] = df['Start Time'].dt.hour
-    
-   
+
+
     return df
 
 
@@ -191,26 +191,27 @@ def user_stats(df):
         print("The counts of gender is: ")
         for i in range(len(counts_gender.index.values)):
             print(counts_gender.index.values[i], ' : ', list(counts_gender)[i])
+
     else:
         print("Gender data is not available")
 
 
     # TO DO: Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
-        
+
         earliest_year = df['Birth Year'].min()
         print("The earliest year of birth is", int(earliest_year))
-        
+
         most_recent_year = df['Birth Year'].max()
         print("The most recent year of birth is", int(most_recent_year))
-        
+
         most_common_year = df['Birth Year'].mode()
         print("The most common year of birth is", int(most_common_year))
-        
+
     else:
         print("Birth Year Data is not available")
 
-        
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -275,7 +276,7 @@ def raw_data(df, mark_place):
         break
 
     return mark_place
-    
+
 
 def main():
     while True:
