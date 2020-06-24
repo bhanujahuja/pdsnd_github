@@ -7,7 +7,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv' }
 
 def choice(prompt, choices=('y', 'n')):
-    """Return a valid input from the user given an array of possible answers.
+    """Return a valid input from the user given an array of possible answers. Additional Changes for GITHUB project
     """
 
     while True:
