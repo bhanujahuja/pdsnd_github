@@ -62,7 +62,7 @@ def get_filters():
             print("Great !!")
             break
         else:
-            print("Sorry, please select again from the following options: january, february, march, april, may, june or all")
+            print("Sorry, please select again from the following options and make sure it is in lowercase: january, february, march, april, may, june or all")
 
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
