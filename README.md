@@ -5,11 +5,10 @@ Date 6/24/2020
 Bikeshare.py
 
 ### Description
-Describe what your project is about and what it does
+Bikeshare is a python project for the Udacity's nanodegree program
 
 ### Files used
 Include the files used
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
